@@ -1,0 +1,46 @@
+# --- Node ---
+node_modules/
+npm-debug.log*
+yarn.lock
+package-lock.json
+
+# --- React Build Files ---
+build/
+dist/
+.cache/
+.eslintcache
+
+# --- Django ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Django env
+venv/
+env/
+
+# Django logs
+*.log
+
+# VSCode Settings
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Python virtual env
+.venv/
+ENV/
+
+# Environment files
+*.env
+.env.local
+
+# Coverage files
+htmlcov/
+.coverage
+coverage.xml
