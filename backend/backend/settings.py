@@ -11,9 +11,26 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+from pathlib import Path
+import os
+from dotenv import load_dotenv
+import dj_database_url
+
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+ALLOWED_HOSTS = ["*"]
+
+DATABASES = {
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+    )
+}
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +42,6 @@ SECRET_KEY = 'django-insecure-c-wm@3spu40qii0ub@+5efqc#y6$rg5-1of97i0tyahga%+v@z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -89,11 +105,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default':dj_database_url.config(
+        default=os.grtenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
+ssl_require=True
 
 
 # Password validation
